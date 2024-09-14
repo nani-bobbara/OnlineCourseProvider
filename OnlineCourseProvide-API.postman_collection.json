@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "468495a5-63cf-4341-ae6f-419d71a6e5b2",
+		"name": "OnlineCourseProvide-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23021381"
+	},
+	"item": [
+		{
+			"name": "GetCourseDetailsById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5247/api/Course/3734671"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCourseDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5247/api/Course"
+			},
+			"response": []
+		},
+		{
+			"name": "PostWatchProgress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"userId\": 218780430,\r\n  \"lessonId\": 646218250,\r\n  \"percentageWatched\": 90\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5247/api/Progress"
+			},
+			"response": []
+		}
+	]
+}
