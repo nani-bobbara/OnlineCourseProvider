@@ -7,8 +7,7 @@ This project provides the backend implementation for an online course provider, 
 - Project Setup
 - Running the Project
 - API Endpoints
-- Testing the Application
-- Verifying Submission
+- Testing the Application & Subbmission
 - Coding Standards, Design Patterns & Best practices
 - Out Of Scope
 
@@ -85,7 +84,7 @@ This project provides the backend implementation for an online course provider, 
     dotnet run
 ```
 2.**The API will be available at(http://localhost:5247/swagger/index.html) with swagger interface** 
-
+    ![App Screenshot](https://github.com/nani-bobbara/OnlineCourseProvider/blob/main/SwaggerInterface.png)
 3.**API EndPoints**
     
 - To get Specific course details including sections,lessons
@@ -94,7 +93,7 @@ This project provides the backend implementation for an online course provider, 
     
    ex: http://localhost:5247/api/Course/3734671
    ```
- - To get Specific all course details including sections,lessons (**not in the scope**)
+ - To get all course details including sections,lessons (**not in the scope, created along**)
     
     ```bash   
     
@@ -110,7 +109,9 @@ This project provides the backend implementation for an online course provider, 
         "lessonId": 4567,
         "percentageWatched": 50
      } 
-   
+## Testing the Application & Subbmission   
+   Either test through Swagger interface or Postman Collection.
+  [Postman Collection](https://github.com/nani-bobbara/OnlineCourseProvider/blob/main/OnlineCourseProvide-API.postman_collection.json)
   
 ## Coding Standards, Design Patterns & Best practices
 
@@ -123,7 +124,8 @@ This project adheres to industry-standard best practices, ensuring maintainabili
 - SOLID Principles: Ensuring high cohesion and low coupling throughout the architecture.
 - Clean Architecture: Well-organized, modular code with clear separation of concerns.
 
-
+![App Screenshot](https://github.com/nani-bobbara/OnlineCourseProvider/blob/main/ProjectStructure.png)
+![App Screenshot](https://github.com/nani-bobbara/OnlineCourseProvider/blob/main/OnlineCourseProvideDB.png)
 
    
 ## Out Of Scope 
