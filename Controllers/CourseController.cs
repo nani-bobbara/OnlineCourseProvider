@@ -18,6 +18,11 @@ namespace OnlineCourseProvider.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// This end point fetches all active courses from database, consider
+        /// As pagination would help to boost performance, not implemented due scope limitation
+        /// </summary>
+        /// <returns></returns>
         // Endpoint to retrieve all courses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CourseDetailsDto>>> GetAllCourses()
@@ -47,12 +52,17 @@ namespace OnlineCourseProvider.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while retrieving all courses.");
+                _logger.LogError(ex, $"An error occurred while retrieving all courses.,{ex.InnerException}");
                 return StatusCode(500, "Internal server error");
             }
         }
 
-        // Endpoint to retrieve detailed information about courses, sections, and lessons
+        /// <summary>
+        /// Endpoint to retrieve detailed information about courses, sections, and lessons
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        // 
         [HttpGet("{id}")]
         public async Task<ActionResult<CourseDetailsDto>> GetCourseDetails(int id)
         {
@@ -86,18 +96,10 @@ namespace OnlineCourseProvider.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while retrieving course details.");
+                _logger.LogError(ex, $"An error occurred while retrieving course details., {ex.InnerException}");
                 return StatusCode(500, "Internal server error");
             }
         }
 
-        /*
-        [HttpPost("ReportProgress")]
-        public async Task<IActionResult> LogLessonProgress([FromBody] ReportProgressDto dto)
-        {
-            await _courseService.ReportProgressAsync(dto.UserId, dto.LessonId, dto.PercentageWatched);
-            return NoContent();
-        }
-        */
     }
 }

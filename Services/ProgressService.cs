@@ -9,10 +9,10 @@ namespace OnlineCourseProvider.Services
     {
         private readonly IRepository<UserLessonProgress> _progressRepository;
         private readonly ApplicationDbContext _context;
-        private readonly ILogger<CourseService> _logger;
+        private readonly ILogger<UserLessonProgress> _logger;
 
 
-        public ProgressService(IRepository<UserLessonProgress> progressRepository, ApplicationDbContext context, ILogger<CourseService> logger)
+        public ProgressService(IRepository<UserLessonProgress> progressRepository, ApplicationDbContext context, ILogger<UserLessonProgress> logger)
         {
             _progressRepository = progressRepository;
             _context = context;
@@ -37,6 +37,7 @@ namespace OnlineCourseProvider.Services
                 else
                 {
                     progress.PercentageWatched = percentageWatched;
+                    progress.UpdatedAt = DateTime.UtcNow;
                     _context.UserLessonProgresses.Update(progress);
                 }
                 await _context.SaveChangesAsync();

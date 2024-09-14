@@ -9,7 +9,8 @@ This project provides the backend implementation for an online course provider, 
 - API Endpoints
 - Testing the Application
 - Verifying Submission
-- Coding Standards, Desing Pattrens & Best practices
+- Coding Standards, Design Patterns & Best practices
+- Out Of Scope
 
 ---
 
@@ -75,16 +76,43 @@ This project provides the backend implementation for an online course provider, 
 
 ## Running the Project
 
-   1.**Build the Project:**     
-       
-       ```bash
-       dotnet Build
-       dotnet run
-      ```
-   2.**The API will be available at** https://localhost:5001  **with swagger interface** 
+1.**Build the Project:** 
 
+```bash
+    dotnet Build
+```
+```bash
+    dotnet run
+```
+2.**The API will be available at(http://localhost:5247/swagger/index.html) with swagger interface** 
 
-## Coding Standards, Desing Pattrens & Best practices
+3.**API EndPoints**
+    
+- To get Specific course details including sections,lessons
+    ```bash
+    http://localhost:5247/api/Course/{Id}
+    
+   ex: http://localhost:5247/api/Course/3734671
+   ```
+ - To get Specific all course details including sections,lessons (**not in the scope**)
+    
+    ```bash   
+    
+    http://localhost:5247/api/Course
+    
+    ```
+ -  To post progress of the video lessons users have watched
+    ```bash
+  
+    http://localhost:5247/api/Progress 
+     {
+        "userId": 1234,
+        "lessonId": 4567,
+        "percentageWatched": 50
+     } 
+   
+  
+## Coding Standards, Design Patterns & Best practices
 
 This project adheres to industry-standard best practices, ensuring maintainability, scalability, and performance:
 
@@ -94,4 +122,14 @@ This project adheres to industry-standard best practices, ensuring maintainabili
 - Logging: Implemented using ILoggerManager for structured and centralized logging.
 - SOLID Principles: Ensuring high cohesion and low coupling throughout the architecture.
 - Clean Architecture: Well-organized, modular code with clear separation of concerns.
+
+
+
    
+## Out Of Scope 
+
+- Caching - not implemented
+- Rate limiting 
+- Pagination 
+- Containerization
+- Security

@@ -45,34 +45,5 @@ namespace OnlineCourseProvider.Services
             }
         }
 
-        public async Task ReportProgressAsync(int userId, int lessonId, double percentageWatched)
-        {
-            try
-            {
-                var progress = await _context.UserLessonProgresses.FindAsync(userId, lessonId);
-                if (progress == null)
-                {
-                    progress = new UserLessonProgress
-                    {
-                        UserId = userId,
-                        LessonId = lessonId,
-                        PercentageWatched = percentageWatched
-                    };
-                    await _context.UserLessonProgresses.AddAsync(progress);
-                }
-                else
-                {
-                    progress.PercentageWatched = percentageWatched;
-                    progress.UpdatedAt = DateTime.UtcNow;
-                    _context.UserLessonProgresses.Update(progress);
-                }
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"An error occurred while logging lesson progress., {ex.InnerException}");
-                throw;
-            }
-        }
     }
 }

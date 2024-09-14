@@ -20,7 +20,10 @@ namespace OnlineCourseProvider
         public static void ConfigureRepositories(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IRepository<Course>, CourseRepository>();
+            services.AddScoped<IRepository<UserLessonProgress>, ProgressRepository>();
             services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IProgressService, ProgressService>();
+
         }
 
         public static void ConfigureLoggerService(this IServiceCollection services)

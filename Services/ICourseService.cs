@@ -6,6 +6,5 @@ namespace OnlineCourseProvider.Services
     {
         Task<IEnumerable<Course>> GetAllCoursesAsync();
         Task<Course> GetCourseByIdAsync(int id);
-        Task ReportProgressAsync(int userId, int lessonId, double percentageWatched);
     }
 }

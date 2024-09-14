@@ -17,6 +17,8 @@ namespace OnlineCourseProvider.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<UserLessonProgress>()
                 .HasKey(ulp => new { ulp.UserId, ulp.LessonId });
 
@@ -36,9 +38,12 @@ namespace OnlineCourseProvider.Data
             modelBuilder.Entity<Lesson>()
                 .HasIndex(l => l.SectionId);
 
-            FakeDataService.SeedData(modelBuilder);
+            // Generate fake data only if there are no records in Course table
+           
+                FakeDataService.SeedData(modelBuilder);
+
+            
         }
     }
-
 
 }

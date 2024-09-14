@@ -9,12 +9,12 @@ namespace OnlineCourseProvider.Controllers
     [Route("api/[controller]")]
     public class ProgressController : ControllerBase
     {
-        private readonly ICourseService _courseService;
-        private readonly ILogger<CourseController> _logger;
+        private readonly IProgressService _progressService;
+        private readonly ILogger<ProgressController> _logger;
 
-        public ProgressController(ICourseService courseService, ILogger<CourseController> logger)
+        public ProgressController(IProgressService progressService, ILogger<ProgressController> logger)
         {
-            _courseService = courseService;
+            _progressService = progressService;
             _logger = logger;
         }
 
@@ -23,7 +23,7 @@ namespace OnlineCourseProvider.Controllers
         [HttpPost()]
         public async Task<IActionResult> LogLessonProgress([FromBody] ReportProgressDto dto)
         {
-            await _courseService.ReportProgressAsync(dto.UserId, dto.LessonId, dto.PercentageWatched);
+            await _progressService.ReportProgressAsync(dto.UserId, dto.LessonId, dto.PercentageWatched);
             return NoContent();
         }
     }
